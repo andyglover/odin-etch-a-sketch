@@ -18,7 +18,7 @@ body {
     height: 0;
 }
 .square {
-    background-color: dodgerblue;
+    background-color: white;
     width: 100px;
     height: 100px;
     margin: 5px;
@@ -28,5 +28,5 @@ body {
 }
 
 .square:hover {
-    background-color: blue;
+    background-color: black;
 }
