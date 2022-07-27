@@ -1,6 +1,8 @@
 const gridDiv = document.getElementById("grid");
 let gridSize = 5;
 const changeGridSizeButton = document.querySelector('#changeGridSize')
+const decreaseGridSizeButton = document.querySelector('#decreaseGridSize')
+const increaseGridSizeButton = document.querySelector('#increaseGridSize')
 
 function createGridSquares(gridSize){
     for(let i=1; i<= gridSize**2 ; i++){
@@ -12,7 +14,8 @@ function createGridSquares(gridSize){
         newGridSquare.style.width=`${dimension}px`
         newGridSquare.style.height=`${dimension}px`
         if(gridSize < 20){
-        newGridSquare.innerText = `${i}`;}
+            newGridSquare.innerText = `${i}`;
+        }
         gridDiv.appendChild(newGridSquare);
         if(i%gridSize==0){
             createLineBreakDiv();
@@ -46,7 +49,35 @@ changeGridSizeButton.addEventListener(
                 gridDiv.removeChild(gridDiv.lastElementChild);
             }        
         }
+        gridSize = newGridSize;
         createGridSquares(newGridSize);
+    }
+)
+
+
+increaseGridSizeButton.addEventListener(
+    'click', () => {
+        increasedGridSize = ++gridSize;
+        if(increasedGridSize){
+            while (gridDiv.lastElementChild) {
+                gridDiv.removeChild(gridDiv.lastElementChild);
+            }        
+        }
+        gridSize = increasedGridSize;
+        createGridSquares(increasedGridSize);
+    }
+)
+
+decreaseGridSizeButton.addEventListener(
+    'click', () => {
+        decreasedGridSize = --gridSize;
+        if(decreasedGridSize){
+            while (gridDiv.lastElementChild) {
+                gridDiv.removeChild(gridDiv.lastElementChild);
+            }        
+        }
+        gridSize = decreasedGridSize;
+        createGridSquares(decreasedGridSize);
     }
 )
 
