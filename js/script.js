@@ -1,4 +1,6 @@
 const gridDiv = document.getElementById("grid");
+let gridSize = 5;
+const changeGridSizeButton = document.querySelector('#changeGridSize')
 
 function createGridSquares(gridSize){
     for(let i=1; i<= gridSize**2 ; i++){
@@ -35,5 +37,17 @@ function askForGridSize(){
         return gridSize;
     }
 }
-const gridSize = askForGridSize();
+
+changeGridSizeButton.addEventListener(
+    'click', () => {
+        newGridSize = askForGridSize();
+        if(newGridSize){
+            while (gridDiv.lastElementChild) {
+                gridDiv.removeChild(gridDiv.lastElementChild);
+            }        
+        }
+        createGridSquares(newGridSize);
+    }
+)
+
 createGridSquares(gridSize);
