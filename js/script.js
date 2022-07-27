@@ -1,4 +1,4 @@
-
+const gridDiv = document.getElementById("grid");
 
 function createGridSquares(){
     createLineBreakDiv();
@@ -8,7 +8,7 @@ function createGridSquares(){
         newGridSquare.setAttribute("id", i);
         newGridSquare.setAttribute("class", "square");
         newGridSquare.innerText = `${i}`;
-        document.body.appendChild(newGridSquare);
+        gridDiv.appendChild(newGridSquare);
         if(i%4==0){
             createLineBreakDiv();
         }
@@ -17,7 +17,7 @@ function createGridSquares(){
 function createLineBreakDiv(){
     const lineBreakDiv = document.createElement("div");
     lineBreakDiv.setAttribute("class", "break");
-    document.body.appendChild(lineBreakDiv);
+    gridDiv.appendChild(lineBreakDiv);
 }
 
 createGridSquares();
